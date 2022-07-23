@@ -10,11 +10,11 @@ public class App {
 
     public static void main(String[] args) throws Exception {
 
-        // fazer uma conexão HTTP e buscar os top 250 filmes
+        // fazer uma conexão HTTP e buscar os filmes
         // String url = "https://imdb-api.com/en/API/Top250Movies/k_0ojt0yvm";
         String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/TopMovies.json";
         URI endereco = URI.create(url);
-        HttpClient client = HttpClient.newHttpClient();
+        var client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
         String body = response.body();
@@ -23,7 +23,7 @@ public class App {
         var parser = new JsonParser();
         List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
-        // exibir e manipular os dados 
+        // exibir e manipular os dados
         for (Map<String,String> filme : listaDeFilmes) {
             System.out.println(filme.get("title"));
             System.out.println(filme.get("image"));
