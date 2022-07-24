@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class ExtratorDeConteudoIMDB {
+public class ExtratorDeConteudoIMDB implements ExtratorDeConteudo {
     
     public List<Conteudo> extrairConteudo(String json){
 
@@ -13,7 +13,6 @@ public class ExtratorDeConteudoIMDB {
         // Popular a lista de conteudos
         for (Map<String, String> atributo : listaDeAtributosDeItens) {
 
-            
             String titulo = atributo.get("title");
             String urlImagem = atributo.get("imagem");
             Conteudo conteudo = new Conteudo(titulo, urlImagem);

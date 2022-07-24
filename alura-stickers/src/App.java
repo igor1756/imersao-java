@@ -15,7 +15,7 @@ public class App {
         String json = client.buscaDados(url);
 
         // extrair só os dados que interessam (titulo, poster, classificação)
-        var extrator = new ExtratorDeConteudoDaNasa();
+        ExtratorDeConteudo extrator = new ExtratorDeConteudoDaNasa();
         List<Conteudo> listaExtraida = extrator.extrairConteudo(json);
 
         // exibir e manipular os dados 
